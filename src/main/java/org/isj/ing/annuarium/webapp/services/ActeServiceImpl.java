@@ -18,7 +18,7 @@ public class ActeServiceImpl implements IActe{
 
     @Override
     public int saveActe(ActeDto acteDto) {
-        Acte acte = acteMapper.toEntity(acteDto);
+        acteRepository.save(acteMapper.toEntity(acteDto));
         return 0;
     }
 
