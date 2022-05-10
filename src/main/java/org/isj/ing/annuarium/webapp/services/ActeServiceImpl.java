@@ -5,11 +5,13 @@ import org.isj.ing.annuarium.webapp.model.dto.ActeDto;
 import org.isj.ing.annuarium.webapp.model.entities.Acte;
 import org.isj.ing.annuarium.webapp.repository.ActeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class ActeServiceImpl implements IActe{
 
     @Autowired
