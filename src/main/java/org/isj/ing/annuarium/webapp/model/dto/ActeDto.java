@@ -1,20 +1,13 @@
-package org.isj.ing.annuarium.webapp.model.entities;
+package org.isj.ing.annuarium.webapp.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity
-public class Acte {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
+public class ActeDto {
     private String numero;
     private String nom;
     private String prenom;
