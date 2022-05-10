@@ -30,14 +30,16 @@ public class ActeServiceImpl implements IActe{
 
     @Override
     public List<ActeDto> listActes() {
-        
+
         return acteRepository.findAll().stream().map(acte -> acteMapper.toDto(acte))
                 .collect(Collectors.toList());
     }
 
     @Override
     public int deleteActe(String numero) {
-        return 0;
+        Acte acte = acteRepository.findActeByNumero(numero).get();
+        acteRepository.deleteById(acte.getId());
+        return 1;
     }
 
     @Override
