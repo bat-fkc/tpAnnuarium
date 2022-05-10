@@ -18,13 +18,12 @@ public class ActeServiceImpl implements IActe{
 
     @Override
     public int saveActe(ActeDto acteDto) {
-        acteRepository.save(acteMapper.toEntity(acteDto));
-        return 0;
+        return acteRepository.save(acteMapper.toEntity(acteDto)).getId().intValue();
     }
 
     @Override
     public ActeDto searchActeByNumero(String numero) {
-        return null;
+        return acteMapper.toDto(acteRepository.findActeByNumero(numero).get());
     }
 
     @Override
