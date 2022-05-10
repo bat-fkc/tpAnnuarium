@@ -6,7 +6,9 @@ import org.isj.ing.annuarium.webapp.model.entities.Acte;
 import org.isj.ing.annuarium.webapp.repository.ActeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ActeServiceImpl implements IActe{
 
@@ -28,7 +30,9 @@ public class ActeServiceImpl implements IActe{
 
     @Override
     public List<ActeDto> listActes() {
-        return null;
+        
+        return acteRepository.findAll().stream().map(acte -> acteMapper.toDto(acte))
+                .collect(Collectors.toList());
     }
 
     @Override
