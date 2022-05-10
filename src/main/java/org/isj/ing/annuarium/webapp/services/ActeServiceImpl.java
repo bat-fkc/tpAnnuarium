@@ -37,8 +37,7 @@ public class ActeServiceImpl implements IActe{
 
     @Override
     public int deleteActe(String numero) {
-        Acte acte = acteRepository.findActeByNumero(numero).get();
-        acteRepository.deleteById(acte.getId());
+        acteRepository.deleteById(acteRepository.findActeByNumero(numero).get().getId());
         return 1;
     }
 
