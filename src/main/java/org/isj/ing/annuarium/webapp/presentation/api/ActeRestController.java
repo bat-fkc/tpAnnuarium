@@ -40,8 +40,9 @@ public class ActeRestController {
 	}
 
 	@GetMapping("/{numero}/delete")
-	public void deteleActe(@PathVariable String numero){
+	public int deteleActe(@PathVariable String numero){
 		iActe.deleteActe(numero);
+		return 1;
 	}
 
 }
