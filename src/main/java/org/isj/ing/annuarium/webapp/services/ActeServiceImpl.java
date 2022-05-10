@@ -31,7 +31,7 @@ public class ActeServiceImpl implements IActe{
     @Override
     public List<ActeDto> listActes() {
 
-        return acteRepository.findAll().stream().map(acte -> acteMapper.toDto(acte))
+        return acteRepository.findAll().stream().map(acteMapper::toDto)
                 .collect(Collectors.toList());
     }
 
@@ -43,6 +43,8 @@ public class ActeServiceImpl implements IActe{
 
     @Override
     public List<ActeDto> searchActesByKeywords(String keyword) {
-        return null;
+        return acteRepository.findActeByNumeroOrNom(keyword, keyword).get().stream()
+                .map(acteMapper::toDto)
+                .collect(Collectors.toList());
     }
 }
