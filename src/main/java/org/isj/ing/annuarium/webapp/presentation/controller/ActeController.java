@@ -1,6 +1,7 @@
 package org.isj.ing.annuarium.webapp.presentation.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import org.isj.ing.annuarium.webapp.model.dto.ActeDto;
 import org.isj.ing.annuarium.webapp.services.IActe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,6 +28,8 @@ public class ActeController {
 	@GetMapping("/listactes")
 	public String pageList(Model model) {
 		//appel de la couche service
+		List<ActeDto>  acteDtos = iActe.listActes();
+		model.addAttribute("acteDtos", acteDtos);
 		return "liste";
 	}
 
