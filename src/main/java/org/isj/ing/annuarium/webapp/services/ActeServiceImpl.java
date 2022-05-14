@@ -22,10 +22,7 @@ public class ActeServiceImpl implements IActe{
 
     @Override
     public int saveActe(ActeDto acteDto) {
-        if(!acteRepository.findActeByNumero(acteDto.getNumero()).isPresent()) {
-            return acteRepository.save(acteMapper.toEntity(acteDto)).getId().intValue();
-        }
-        return 0;
+        return acteRepository.findActeByNumero(acteDto.getNumero()).isPresent() ? 0 : acteRepository.save(acteMapper.toEntity(acteDto)).getId().intValue();
     }
 
     @Override
