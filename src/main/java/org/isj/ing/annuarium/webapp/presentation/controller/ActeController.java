@@ -46,4 +46,29 @@ public class ActeController {
 		return "redirect:/listeactes";
 	}
 
+	//affichage du formulaire
+	@GetMapping("/enregistreracteform")
+	public String enregistrerActe(Model model) {
+
+		ActeDto acteDto = new ActeDto();
+		acteDto.setNumero("CM");
+		model.addAttribute("acteDto",acteDto);
+
+		return "enregistrer";
+	}
+
+	// Traitemement des valeurs saisies dans le formulaire
+	@PostMapping("/enregistreracte")
+	public String enregistrerActe(@ModelAttribute ActeDto acteDto,
+									  Model model) {
+
+		ActeController.log.info("enregistrer-acte");
+		// appel de la couche service ou metier injectée pour enregistrer un acte
+		iActe.saveActe(acteDto);
+
+		return "redirect:/listeactes";
+
+
+	}
+
 }
