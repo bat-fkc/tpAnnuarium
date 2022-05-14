@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.thymeleaf.org" >
+
+<th:block th:fragment="header">
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container">
+            <div class="header-container d-flex align-items-center justify-content-between">
+                <div class="logo">
+                    <!--<h1 class="text-light"><a href="index.html"><span>ActAnnu</span></a></h1> -->
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <a th:href="index.html"><img src="@{/assets/img/20220311_094430_0000.png}" alt="" class="img-fluid" ></a>
+                </div>
+
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li><a class="nav-link scrollto active" th:href="index.html">Accueil</a></li>
+                        <li><a class="nav-link scrollto" th:href="#about">A propos</a></li>
+                        <li class="dropdown"><a th:href="#"><span>Acte</span> <i class="bi bi-chevron-down"></i></a>
+                            <ul>
+                                <li><a th:href="liste.html">Liste des actes</a></li>
+                                <li><a th:href="enregistrer.html">Enregistrer un acte</a></li>
+                                <li><a th:href="rechercher.html">Rechercher un acte</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="nav-link scrollto" th:href="demander.html">Demander son acte</a></li>
+                        <li><a class="getstarted scrollto" th:href="#about">Contact</a></li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav><!-- .navbar -->
+
+            </div><!-- End Header Container -->
+        </div>
+    </header><!-- End Header -->
+</th:block>
+
+</html>
