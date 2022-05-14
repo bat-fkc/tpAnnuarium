@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:replace="fragments/_head.html::head"></th:block>
+</head>
+
+<body>
+
+    <th:block th:replace="fragments/_header.html::header"></th:block>
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+            <!-- <h2>Inner Page</h2> -->
+            <ol>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="liste.html">Liste des actes</a></li>
+                <li>Détails</li>
+            </ol>
+            </div>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section id="about" class="section-padding">
+      <div class="container mt-5">
+          <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                  <div class="img-thumb wow fadeInLeft" data-wow-delay="0.3s">
+                      <img class="img-fluid" th:src="@{assets/img/actedetail.png}" alt="">
+                  </div>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                  <div class="profile-wrapper wow fadeInRight" data-wow-delay="0.3s">
+                      <h3>Informations de l'acte</h3>
+
+                      <div class="about-profile">
+                          <ul class="admin-profile">
+                              <li><span class="pro-title"> Nom </span> <span th:text="${acteDto.nom}" class="pro-detail">Tom Saulnier</span></li>
+                              <li><span class="pro-title"> Prénom </span> <span th:text="${acteDto.prenom}" class="pro-detail">Saulnier</span></li>
+                              <li><span class="pro-title"> Date de naissance </span> <span th:text="${acteDto.dateNaissance}" class="pro-detail">25/01/2000</span></li>
+                              <li><span class="pro-title"> Lieu de naissance </span> <span th:text="${acteDto.lieuNaissance}" class="pro-detail">Yaoundé</span></li>
+                              <li><span class="pro-title"> Nom et prénom du père </span> <span th:text="${acteDto.nomPrenomPere}" class="pro-detail">xxxxx</span></li>
+                              <li><span class="pro-title"> Nom de prénom la mère </span> <span th:text="${acteDto.nomPrenomMere}" class="pro-detail">xxxx</span></li>
+                          </ul>
+                      </div>
+                      <a href="#" class="btn btn-common bg-success"><i class="ri-printer-fill"></i> Télécharger</a>   <!-- jasperreport ou i text -->
+                      <!-- <button type="button" class="btn btn-common" data-toggle="modal" data-target="#myModal"> <i class="ri-remote-control-2-fill"></i> Modifier</button> -->
+                      <!-- <a href="#" class="btn btn-danger"><i class="ri-delete-bin-3-fill"></i> Supprimer</a> -->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  </main><!-- End #main -->
+
+    <th:block th:replace="fragments/_footer.html::footer"></th:block>
+
+    <th:block th:replace="fragments/_js.html::js"></th:block>
+
+</body>
+
+</html>
