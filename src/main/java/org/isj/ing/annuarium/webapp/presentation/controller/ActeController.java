@@ -21,7 +21,7 @@ public class ActeController {
 	IActe iActe;
 
 	@GetMapping("/")
-	public String pageAcceuil(Model model) {
+	public String pageAcceuil() {
 		return "index";
 	}
 
@@ -38,6 +38,12 @@ public class ActeController {
 		ActeDto acteDto = iActe.searchActeByNumero(numero);
 		model.addAttribute("acteDto", acteDto);
 		return "details";
+	}
+
+	@GetMapping("/supprimer")
+	public String pageSupprimer(@RequestParam(name = "numero") String numero) {
+		iActe.deleteActe(numero);
+		return "redirect:/listeactes";
 	}
 
 }
