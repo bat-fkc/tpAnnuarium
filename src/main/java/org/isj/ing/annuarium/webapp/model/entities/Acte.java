@@ -4,15 +4,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-@Entity
+@Data //génère les getter et les setter, on pouvait faire @setter @getter
+@Entity //doit obligatoirement avoir un id
+
 public class Acte {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO) //enlève le rouge sur la classe Acte
     private Long id;
 
     private String numero;
@@ -20,6 +24,6 @@ public class Acte {
     private String prenom;
     private String dateNaissance;
     private String lieuNaissance;
-    private String nomPrenomMere;
     private String nomPrenomPere;
+    private String nomPrenomMere;
 }

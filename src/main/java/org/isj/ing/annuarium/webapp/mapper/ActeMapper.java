@@ -11,5 +11,5 @@ public interface ActeMapper {
 
     ActeDto toDto(Acte acte);
 
-    void copy(ActeDto acteDto, @MappingTarget Acte acte);
+    void copy(ActeDto acteDTO, @MappingTarget Acte acte);
 }

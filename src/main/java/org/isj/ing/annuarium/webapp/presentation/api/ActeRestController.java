@@ -1,5 +1,7 @@
 package org.isj.ing.annuarium.webapp.presentation.api;
 
+import org.isj.ing.annuarium.webapp.model.dto.ActeDto;
+import org.isj.ing.annuarium.webapp.services.IActe;
 import lombok.extern.slf4j.Slf4j;
 import org.isj.ing.annuarium.webapp.model.dto.ActeDto;
 import org.isj.ing.annuarium.webapp.services.IActe;
@@ -22,27 +24,29 @@ public class ActeRestController {
 	private IActe iActe;
 
 
-	@PostMapping
+	@PostMapping (value = "/save")
 	public void enregistrer(@RequestBody ActeDto create) {
-		ActeRestController.log.info("enregistrer-materiel");
+		ActeRestController.log.info("enregistrer-acte");
 		iActe.saveActe(create);
 	}
 
+
 	@GetMapping("/{numero}/data")
-	public ResponseEntity<ActeDto> getActeByNumero(@PathVariable String numero){
+	public ResponseEntity<ActeDto> getMaterielByReference(@PathVariable String numero) {
+
 		return ResponseEntity.ok(iActe.searchActeByNumero(numero));
 	}
 
 
 	@GetMapping("/all")
-	public ResponseEntity<List<ActeDto>> getAllActes() {
+	public ResponseEntity<List<ActeDto>> getAllMateriels() {
+
 		return ResponseEntity.ok(iActe.listActes());
 	}
 
 	@GetMapping("/{numero}/delete")
-	public int deteleActe(@PathVariable String numero){
+	public void deteleActe(@PathVariable String numero) {
 		iActe.deleteActe(numero);
-		return 1;
 	}
 
 }
