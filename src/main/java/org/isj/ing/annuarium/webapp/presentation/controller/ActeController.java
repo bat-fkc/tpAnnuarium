@@ -25,12 +25,19 @@ public class ActeController {
 		return "index";
 	}
 
-	@GetMapping("/listactes")
-	public String pageList(Model model) {
+	@GetMapping("/listeactes")
+	public String pageListeActes(Model model) {
 		//appel de la couche service
 		List<ActeDto>  acteDtos = iActe.listActes();
 		model.addAttribute("acteDtos", acteDtos);
 		return "liste";
+	}
+
+	@GetMapping("/details")
+	public String pageDetail(@RequestParam(name = "numero") String numero, Model model) {
+		ActeDto acteDto = iActe.searchActeByNumero(numero);
+		model.addAttribute("acteDto", acteDto);
+		return "details";
 	}
 
 }
