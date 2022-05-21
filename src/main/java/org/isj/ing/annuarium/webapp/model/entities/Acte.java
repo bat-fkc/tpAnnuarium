@@ -16,7 +16,7 @@ import javax.persistence.Id;
 
 public class Acte {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) //enlève le rouge sur la classe Acte
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String numero;
